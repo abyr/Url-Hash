@@ -1,25 +1,8 @@
 /**
  * Filters object
  * 
- * _filters contain description of filters
- * FILTER_ALIAS : {
- *     key : "URL_HASH_KEY"
- *     value : DEFAULT_VALUE
- *     rels : array of containers aliases
- * 
- * _containers contain description of visual elements
- * CONTAINER_ALIAS : {
- *     id : ID of container
- *     src : url for AJAX call
- *     filters : use this filters to make clean AJAX call
- *     update : custom update function
- *
  * Dependencies: HashUrl (urlHash.js)
  * 
- * Notice. Update hash, 
- * datagrid and chart updates are bind to hashChange event 
- * with "filters.update()"
- *
  * @author abyr (abyrcheg@gmail.com)
  */
 FiltersUrl = function(config) {

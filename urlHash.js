@@ -3,47 +3,6 @@
  *
  * methods to work with window.location.hash
  * 
- * Usage examples:
- * 
- * 1) HashUrl.getHashParam("status")
- * 
- * 2) HashUrl.getHashParam("status", hash_string)
- * 
- * 3) HashUrl.addHashParam("status", "close")
- * 
- * 4) HashUrl.removeHashParam("status")
- *
- * 5) //addHashes
- *
- *  config = new Array("all", "me")
- *  HashUrl.addHashes(config)
- * 
- * 6) // addHashesParams
- *
- * options = {
- *     page : 1,
- *     perPage : 20,
- *     type : "html"
- * }
- * HashUrl.addHashesParams(options);
- * 
- * 7) //removeHash
- *
- * HashUrl.removeHash("status")
- * 
- * 8) //removeHashes
- * 
- * list = new Array("page", "perPage", "status")
- * HashUrl.removeHashes(list)
- *
- * 
- * External usage example:
- *
- * $(window).bind('hashchange', function() {
- *     //code
- * });
- *
- * 
  * @author abyr (abyrcheg@gmail.com)
  */
 HashUrl = {
