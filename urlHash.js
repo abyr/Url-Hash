@@ -44,7 +44,7 @@
  * });
  *
  * 
- * @author abr
+ * @author abyr (abyrcheg@gmail.com)
  */
 HashUrl = {
     
