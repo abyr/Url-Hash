@@ -1,7 +1,7 @@
 /**
  * Filters object
  * 
- * Dependencies: HashUrl (urlHash.js)
+ * Dependencies: HashUrl (urlHash.js), jQuery
  * 
  * @author abyr (abyrcheg@gmail.com)
  */
