@@ -61,4 +61,4 @@ CONTAINER_ALIAS : {
    filters : use this filters to make clean AJAX call
    update : custom update function
 
-Dependencies: HashUrl (urlHash.js)
+Dependencies: HashUrl (urlHash.js), jQuery
