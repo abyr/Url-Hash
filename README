@@ -62,7 +62,3 @@ CONTAINER_ALIAS : {
    update : custom update function
 
 Dependencies: HashUrl (urlHash.js)
-
-Notice. Update hash, 
-datagrid and chart updates are bind to hashChange event 
-with "filters.update()"
