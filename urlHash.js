@@ -2,40 +2,40 @@
  * HashUrl
  *
  * methods to work with window.location.hash
- * 
+ *
  * @author abyr (abyrcheg@gmail.com)
  */
 HashUrl = {
-    
+
     /**
      * return current window.location.hash without "#"
-     * @return string 
+     * @return string
      */
     getHash : function() {
         var hash = window.location.hash;
-        if (hash != "") {
+        if (hash !== "") {
             //remove "#"
             return hash.replace(/#(.*)/, "$1");
         }
         return hash;
     },
-    
+
     /**
      * set hash
      * @param hash (string) full hash string
      * return boolean
      */
     setHash: function(hash) {
-        window.location.hash = hash
-        return false
+        window.location.hash = hash;
+        return false;
     },
-    
+
     /**
      * add value to hash, add only "&" and value
      * @param h  (string) hash value
      * @param hash  (string) all hash params string
      * @param applyLater  (boolean) apply this hash later and return
-     * @return boolean|string 
+     * @return boolean|string
      */
     addHash : function(h, hash, applyLater) {
         //default = no
@@ -45,15 +45,15 @@ HashUrl = {
 
         if (!hash) {
             //not passed, actual
-            var hash = this.getHash()
+            hash = this.getHash();
         }
-        
-        if (hash == "") {
+
+        if (hash === "") {
             if (applyLater) {
-                return h
+                return h;
             }
             return this.setHash(h);
-            
+
         } else {
             var arr = {};
             this._parseStr(hash, arr);
@@ -65,7 +65,7 @@ HashUrl = {
             }
             var temp =[];
             for (var j in arr) {
-                if (arr[j] == "") {
+                if (arr[j] === "") {
                     temp.push(j);
                 } else {
                     temp.push(j + "=" + arr[j]);
@@ -76,10 +76,10 @@ HashUrl = {
             if (applyLater) {
                 return temp.join('&');
             }
-            return this.setHash(temp.join('&'))
-            
+            return this.setHash(temp.join('&'));
+
         }
-        return false
+        return false;
     },
 
     /**
@@ -89,23 +89,23 @@ HashUrl = {
      */
     addHashes : function(list) {
 
-        hash = this.getHash()
-        
+        hash = this.getHash();
+
         for (var index in list) {
-            hash = this.addHash(list[index], hash, true)
+            hash = this.addHash(list[index], hash, true);
         }
-        
-        return this.setHash(hash)
+
+        return this.setHash(hash);
     },
 
     /**
      * add value to hash as key and value pair
      * @param key    (string) param name
      * @param value  (string) param value
-     * @return boolean 
+     * @return boolean
      */
     addHashParam : function(key, value) {
-        return this.addHash(key + "=" + value)
+        return this.addHash(key + "=" + value);
     },
 
     /**
@@ -115,27 +115,27 @@ HashUrl = {
      */
     addHashesParams : function(list) {
 
-        hash = this.getHash()
+        hash = this.getHash();
 
         for (var key in list) {
-            hash = this.addHash(key + "=" + list[key], hash, true)
+            hash = this.addHash(key + "=" + list[key], hash, true);
         }
 
-        return this.setHash(hash)
+        return this.setHash(hash);
     },
-    
+
     /**
      * get hash param by name
      * @param key   (string) param name
      * @param hash  (string) whole hash string to look in
-     * @return boolean 
+     * @return boolean
      */
     getHashParam : function(key, hash, def) {
         if (!hash) {
-            hash = this.getHash()
+            hash = this.getHash();
         }
         var arr = {};
-        
+
         this._parseStr(hash, arr);
 
         for (var i in arr) {
@@ -143,9 +143,9 @@ HashUrl = {
                 return arr[i];
             }
         }
-        
+
         if (def) {
-            return def
+            return def;
         }
 
         return false;
@@ -160,10 +160,10 @@ HashUrl = {
     issetHashParam : function (key, hash) {
 
         if (!hash) {
-            hash = this.getHash()
+            hash = this.getHash();
         }
         var arr = {};
-        
+
         this._parseStr(hash, arr);
 
         for (var i in arr) {
@@ -171,32 +171,32 @@ HashUrl = {
                 return true;
             }
         }
-        return false
+        return false;
     },
-    
+
     /**
      * remove hash key from full hash
      * @param key (string) key of hash param
      * return boolean
      */
     removeHash : function(key) {
-        return this.removeHashParam(key)
+        return this.removeHashParam(key);
     },
-    
+
     /**
      * remove hash param by name
      * @param key   (string) param name
      * @param hash  (string) all hash params string
      * @param applyLater  (boolean) remove this hash later and return
-     * @return boolean 
+     * @return boolean
      */
     removeHashParam : function(key, hash, applyLater) {
 
         if (!hash) {
-            hash = this.getHash()
+            hash = this.getHash();
         }
-        
-        if (hash != "" && typeof(hash) != "undefined") {
+
+        if (hash !== "" && typeof(hash) != "undefined") {
             var arr = {};
             this._parseStr(hash, arr);
             var arr1 = {};
@@ -208,21 +208,21 @@ HashUrl = {
             }
             var temp =[];
             for (var j in arr1) {
-                if (arr[j] == "") {
+                if (arr[j] === "") {
                     temp.push(j);
                 } else {
                     temp.push(j + "=" + arr[j]);
                 }
             }
-            
+
             if (applyLater) {
                 return temp.join('&');
             }
 
-            return this.setHash(temp.join('&'))
-            
+            return this.setHash(temp.join('&'));
+
         }
-        return false
+        return false;
     },
 
     /**
@@ -231,41 +231,41 @@ HashUrl = {
      * return boolean
      */
     removeHashes : function(list) {
-        
-        hash = this.getHash()
-        
+
+        hash = this.getHash();
+
         for (var index in list) {
-            hash = this.removeHashParam(list[index], hash, true)
+            hash = this.removeHashParam(list[index], hash, true);
         }
 
-        return this.setHash(hash)
+        return this.setHash(hash);
     },
-    
+
     /**
      * decode string
      * @param str   (string)
-     * @return boolean 
+     * @return boolean
      */
     urldecode : function(str) {
         return decodeURIComponent((str+'').replace(/\+/g, '%20'));
     },
-    
+
     /**
      * encode string
      * @param str   (string)
-     * @return boolean 
+     * @return boolean
      */
     urlencode : function (str) {
         str = (str+'').toString();
         return encodeURIComponent(str).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').
         replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/%20/g, '+');
     },
-    
+
     /**
      * key value string to array
      * @param str   (string)
      * @param array (string)
-     * @return string|boolean 
+     * @return string|boolean
      */
     _parseStr : function(str, array) {
         var glue1 = '=', glue2 = '&', array2 = String(str).replace(/^&?([\s\S]*?)&?$/, '$1').split(glue2),
@@ -341,7 +341,7 @@ HashUrl = {
                 eval(evalStr);
             }
         }
-        return false
+        return false;
     }
-    
-}
+
+};
