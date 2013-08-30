@@ -1,0 +1,64 @@
+HashUrl
+
+methods to work with window.location.hash
+
+Usage examples:
+
+1) HashUrl.getHashParam("status")
+
+2) HashUrl.getHashParam("status", hash_string)
+
+3) HashUrl.addHashParam("status", "close")
+
+4) HashUrl.removeHashParam("status")
+
+5) //addHashes
+
+config = new Array("all", "me")
+HashUrl.addHashes(config)
+
+6) // addHashesParams
+
+options = {
+   page : 1,
+   perPage : 20,
+   type : "html"
+}
+HashUrl.addHashesParams(options);
+
+7) //removeHash
+
+HashUrl.removeHash("status")
+
+8) //removeHashes
+
+list = new Array("page", "perPage", "status")
+HashUrl.removeHashes(list)
+
+
+External usage example:
+
+$(window).bind('hashchange', function() {
+   //code
+});
+
+
+
+FiltersUrl
+
+Filters object, addon to Hash url
+
+_filters contain description of filters
+FILTER_ALIAS : {
+   key : "URL_HASH_KEY"
+   value : DEFAULT_VALUE
+   rels : array of containers aliases
+
+_containers contain description of visual elements
+CONTAINER_ALIAS : {
+   id : ID of container
+   src : url for AJAX call
+   filters : use this filters to make clean AJAX call
+   update : custom update function
+
+Dependencies: HashUrl (urlHash.js), jQuery
