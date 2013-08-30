@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Url-hash : JS tool to work with URL hash" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Url-hash</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/abyrcheg/Url-Hash">View on GitHub</a>
+
+          <h1 id="project_title">Url-hash</h1>
+          <h2 id="project_tagline">JS tool to work with URL hash</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/abyrcheg/Url-Hash/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/abyrcheg/Url-Hash/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="hashurl" class="anchor" href="#hashurl"><span class="octicon octicon-link"></span></a>HashUrl</h1>
+
+<p>methods to work with window.location.hash</p>
+
+<h2>
+<a name="usage-examples" class="anchor" href="#usage-examples"><span class="octicon octicon-link"></span></a>Usage examples:</h2>
+
+<pre><code>HashUrl.getHashParam("status")
+
+HashUrl.getHashParam("status", hash_string)
+
+HashUrl.addHashParam("status", "close")
+
+HashUrl.removeHashParam("status")
+
+// addHashes
+config = new Array("all", "me")
+HashUrl.addHashes(config)
+
+// addHashesParams
+options = {
+    page : 1,
+    perPage : 20,
+    type : "html"
+}
+HashUrl.addHashesParams(options);
+
+// removeHash
+HashUrl.removeHash("status")
+
+//removeHashes
+list = new Array("page", "perPage", "status")
+HashUrl.removeHashes(list)
+</code></pre>
+
+<h2>
+<a name="external-usage-example" class="anchor" href="#external-usage-example"><span class="octicon octicon-link"></span></a>External usage example:</h2>
+
+<pre><code>$(window).bind('hashchange', function() {
+   //  code
+});
+</code></pre>
+
+<h2>
+<a name="filtersurl" class="anchor" href="#filtersurl"><span class="octicon octicon-link"></span></a>FiltersUrl</h2>
+
+<p>Filters object, addon to Hash url</p>
+
+<pre><code>_filters contain description of filters
+FILTER_ALIAS : {
+   key : "URL_HASH_KEY"
+   value : DEFAULT_VALUE
+   rels : array of containers aliases
+
+_containers contain description of visual elements
+CONTAINER_ALIAS : {
+   id : ID of container
+   src : url for AJAX call
+   filters : use this filters to make clean AJAX call
+   update : custom update function
+</code></pre>
+
+<p>Dependencies: HashUrl (urlHash.js), jQuery</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Url-hash maintained by <a href="https://github.com/abyrcheg">abyrcheg</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
